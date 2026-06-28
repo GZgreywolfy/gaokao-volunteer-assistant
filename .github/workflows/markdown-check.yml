@@ -1,0 +1,70 @@
+name: Markdown Link Check & File Existence
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "=== 检查核心文件存在性 ==="
+          required_files=(
+            "SKILL.md"
+            "README.md"
+            "LICENSE"
+            "CHANGELOG.md"
+            "CONTRIBUTING.md"
+            "references/index.md"
+            "references/平行志愿规则.md"
+            "references/冲稳保策略.md"
+            "references/专业级差与调剂.md"
+            "references/提前批与特殊类型.md"
+            "references/新高考选科与填报模式.md"
+            "references/常见误区.md"
+            "examples/场景1-缺少位次.md"
+            "examples/场景2-不服从调剂.md"
+            "examples/场景3-提前批师范咨询.md"
+            "examples/场景4-选科与专业冲突.md"
+          )
+          missing=0
+          for f in "${required_files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "❌ 缺失: $f"
+              missing=$((missing+1))
+            else
+              echo "✅ 存在: $f"
+            fi
+          done
+          if [ $missing -gt 0 ]; then
+            echo "共缺失 $missing 个文件"
+            exit 1
+          fi
+          echo "所有核心文件均存在"
+
+      - name: Check markdown links
+        uses: UmbrellaCookie/markdown-link-check@v1
+        with:
+          folder-path: .
+          file-extension: .md
+          use-verbose: true
+          config: |
+            {
+              "ignorePatterns": [
+                { "pattern": "^https://gaokao\\.chsi\\.com\\.cn" },
+                { "pattern": "^https://sun\\.cn" },
+                { "pattern": "^https://github\\.com/GZgreywolfy" },
+                { "pattern": "^http://localhost" },
+                { "pattern": "^file://" }
+              ],
+              "timeout": "10s",
+              "retryOn429": true,
+              "retryCount": 2,
+              "fallbackRetryDelay": "30s"
+            }
