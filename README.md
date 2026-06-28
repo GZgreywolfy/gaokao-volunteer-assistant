@@ -29,6 +29,19 @@ gaokao-volunteer-assistant/
     └── 场景4-选科与专业冲突.md        # 选科冲突检测与专业方向调整建议
 ```
 
+## 快速导航
+
+| 文档 | 用途 | 链接 |
+|------|------|------|
+| 更新日志 | 查看各版本变更记录 | [CHANGELOG.md](CHANGELOG.md) |
+| 贡献指南 | 了解如何提交改进和 PR | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| 知识库索引 | 快速定位 6 个知识文件 | [references/index.md](references/index.md) |
+| 测试场景 | 4 个典型场景输入输出示例 | [examples/](examples/) |
+| 知识参考资料 | 平行志愿、冲稳保策略等详细说明 | [references/](references/) |
+| 项目主定义文件 | AI Agent 工作流定义 | [SKILL.md](SKILL.md) |
+
+---
+
 ### 核心文件说明
 
 #### SKILL.md
@@ -183,6 +196,20 @@ git submodule add https://github.com/GZgreywolfy/gaokao-volunteer-assistant.git
 ## 贡献
 
 欢迎提交 Issue 或 Pull Request 来完善参考资料和策略逻辑。详情请参阅 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+---
+
+## 版本与更新
+
+当前最新版本：**v1.2.0**
+
+本项目采用语义化版本号（SemVer）：
+
+- **主版本号**：重大结构性调整或定位变更时递增
+- **次版本号**：新增功能、知识库扩展、工作流优化时递增
+- **修订号**：错误修正、文档完善、非功能性改进时递增
+
+完整的版本历史和详细变更内容请参阅 [CHANGELOG.md](CHANGELOG.md)。
 
 ---
 
