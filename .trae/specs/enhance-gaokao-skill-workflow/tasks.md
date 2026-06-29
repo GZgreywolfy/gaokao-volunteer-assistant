@@ -36,9 +36,9 @@
 - [x] 两个示例均标注"非真实分数线"
 
 ## 任务 6: Git 提交与推送
-- [ ] git add 所有新增和修改文件
-- [ ] git commit with Chinese message
-- [ ] git push 到 origin main
+- [x] git add 所有新增和修改文件
+- [x] git commit with Chinese message
+- [x] git push 到 origin main
 
 # Task Dependencies
 - 任务 1 需先于所有其他任务
