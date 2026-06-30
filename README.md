@@ -243,7 +243,7 @@ def query_by_rank_range(data, target_rank, range_percent=0.1):
 
 ## 版本与更新
 
-当前最新版本：**v1.4.0**
+当前最新版本：**v1.5.0**
 
 完整的版本历史和详细变更内容请参阅 [CHANGELOG.md](CHANGELOG.md)。
 
